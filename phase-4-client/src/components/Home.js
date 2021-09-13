@@ -23,7 +23,7 @@ const [password, setPassword] = useState("");
 
 
     if (user) {
-      return <h1> Welcome, {user.username}! <Content/></h1>;
+      return <h1> Welcome, {user.username}!</h1>;
     } else {
 
       return (
