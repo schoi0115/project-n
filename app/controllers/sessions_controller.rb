@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :patient_create]
     
     def create
         user = User.find_by(username: params[:username])
@@ -15,6 +15,19 @@ class SessionsController < ApplicationController
         session.delete :user_id
         head :no_content
     end
+
+    def patient_create
+      patient = Patient.find_by(id: params[:id])
+      if patient&.authenticate(params[:name])
+        session[:id] = patient.id
+        render json: patient, status: :created
+      else
+        render json: { error: "You cannot add patient" }, status: :unauthorized
+  
+      end
+    end
+
+
 
 
 

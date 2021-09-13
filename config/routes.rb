@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
  
+  resources :new_notes
   resources :users
+  resources :patients, only: [:create]
+
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+  post "/newpatients", to: "patients#create"
+  get "/patients", to: "patients#index"
+  get "/patients/:id", to: "patinets#show"
+
+  # get "/new_notes", to: "new_notes#create"
   
 
   post "/signup", to: "users#create"
