@@ -13,7 +13,7 @@ import Navigation from "./contents/Navigation";
 // import NewNote from "./containers/NewNote"
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(false);
   const [patient, setPatient] = useState([])
   const [errors, setErrors] = useState(false)
 
@@ -34,6 +34,17 @@ function App() {
     .then(setPatient)
   },[])
 
+  // async function fetchPatients() {
+  //   const response = await fetch('/patients');
+  //   const returnedPatient = await response.json();
+  //   return returnedPatient
+  // }
+  // fetchPatients().then(returnPatient => {
+  //   setPatient[returnPatient]
+  //   console.log(returnPatient)
+  // })
+
+
   function handlePost(e){
     e.preventDefault();
     fetch('/patients',{
@@ -52,10 +63,14 @@ function App() {
       }
     })
 }
+  function onLogOut() {
+    setPatient([])
+    setUser(false)
+  }
 
   return (
     <div>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} onLogOut={onLogOut}/>
       <main>
         {user ? (
           <div>
@@ -71,6 +86,7 @@ function App() {
               <PatientForm 
               handlePost={handlePost} 
               setPatient={setPatient} 
+              patient={patient}
               errors={errors} 
               user= {user}
               />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom'
 
-function PatientForm({setPatient, user}) {
+function PatientForm({setPatient, user, patient}) {
   const [name, setName] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
@@ -9,6 +9,7 @@ function PatientForm({setPatient, user}) {
   const [difficulty, setDifficulty] = useState(0)
   const [injury, setInjury] = useState("")
   const [mechanism_of_injury, setMoi] = useState("")
+  let history = useHistory()
  
 
 
@@ -33,9 +34,10 @@ function PatientForm({setPatient, user}) {
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((patient) => setPatient(patient));
+          r.json().then((data) => setPatient([...patient, data]));
         }
       });
+      history.push("/")
     }
   
   
