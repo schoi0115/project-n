@@ -5,7 +5,9 @@ class CreatePatients < ActiveRecord::Migration[6.1]
       t.integer :age
       t.float :weight
       t.string :address
-
+      t.decimal :difficulty
+      t.belongs_to :user
+    
       t.timestamps
     end
   end

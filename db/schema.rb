@@ -14,8 +14,12 @@ ActiveRecord::Schema.define(version: 2021_09_13_093707) do
 
   create_table "new_notes", force: :cascade do |t|
     t.text "note"
+    t.integer "patient_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_new_notes_on_patient_id"
+    t.index ["user_id"], name: "index_new_notes_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -23,26 +27,21 @@ ActiveRecord::Schema.define(version: 2021_09_13_093707) do
     t.integer "age"
     t.float "weight"
     t.string "address"
+    t.decimal "difficulty"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "project4s", force: :cascade do |t|
-    t.string "title"
-    t.integer "year"
-    t.string "feeling"
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_project4s_on_user_id"
+    t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.integer "capacity"
+    t.integer "age"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "project4s", "users"
 end

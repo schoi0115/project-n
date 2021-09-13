@@ -2,14 +2,16 @@ Rails.application.routes.draw do
  
   resources :new_notes
   resources :users
-  resources :patients, only: [:create]
+  resources :patients, only: [:create, :index, :show]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  post "/newpatients", to: "patients#create"
+
+  
+  post "/patients/new", to: "patients#create"
   get "/patients", to: "patients#index"
-  get "/patients/:id", to: "patinets#show"
+  get "/patients/:id", to: "patients#show"
 
   # get "/new_notes", to: "new_notes#create"
   

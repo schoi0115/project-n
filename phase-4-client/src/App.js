@@ -18,11 +18,10 @@ function App() {
   const [errors, setErrors] = useState(false)
 
 
-  const [patients, setPatients] = useState([])
-
   useEffect(() => {
   
     fetch("me").then((r) => {
+  
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -32,7 +31,7 @@ function App() {
   useEffect(() => {
     fetch('/patients')
     .then(res => res.json())
-    .then(setPatient)
+    .then(console.log)
   },[])
 
   function handlePost(e){
@@ -45,7 +44,7 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+
       if(data.errors){
         setErrors(data.errors)
       } else {
@@ -60,9 +59,9 @@ function App() {
       <main>
         {user ? (
           <div>
-            <Navigation patinet={patient} setPatient={setPatient} handlePost={handlePost}/>
+            <Navigation patient={patient} setPatient={setPatient} handlePost={handlePost}/>
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <Home user={user}/>
             </Route>
             <Route exact path="/patients">
@@ -73,11 +72,12 @@ function App() {
               handlePost={handlePost} 
               setPatient={setPatient} 
               errors={errors} 
+              user= {user}
               />
             </Route>
-            <Route exact path="/patients/:id">
+            {/* <Route exact path="/patients/:id">
               <PatientDetail  />
-            </Route>
+            </Route> */}
           </Switch>
           </div>
         ) : (

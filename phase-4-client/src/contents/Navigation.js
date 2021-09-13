@@ -3,12 +3,13 @@ import {Link} from "react-router-dom";
 
 function Navigation({ patient, setPatient, handlePost }) {
   function handleCreatePatientClick() {
-    fetch("patients/new", { method: "POST" })
+    fetch("/patients/new", { method: "POST" })
       .then(() => setPatient());
 
 
   }
- 
+
+
 
     return (
          <div>
@@ -18,7 +19,7 @@ function Navigation({ patient, setPatient, handlePost }) {
             Nurse's note
             </button>
     
-           <Link to="/patients/new"><button>New Patient</button></Link>
+           <Link to="/patients/new" onClick={console.log("hi")}>New Patient</Link>
            <h1><Link to="/"> <button>Home</button></Link></h1>
          </div>
     )
