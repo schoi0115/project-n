@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Navigation({ patient, setPatient, handlePost }) {
   function handleCreatePatientClick() {
@@ -19,8 +19,8 @@ function Navigation({ patient, setPatient, handlePost }) {
             Nurse's note
             </button>
     
-           <Link to="/patients/new" onClick={console.log("hi")}>New Patient</Link>
-           <h1><Link to="/"> <button>Home</button></Link></h1>
+           <NavLink to="/patients/new" onClick={console.log("hi")}>New Patient</NavLink>
+           <h1><NavLink to="/"> <button>Home</button></NavLink></h1>
          </div>
     )
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_093707) do
+ActiveRecord::Schema.define(version: 2021_09_13_204847) do
 
   create_table "new_notes", force: :cascade do |t|
     t.text "note"
@@ -27,10 +27,13 @@ ActiveRecord::Schema.define(version: 2021_09_13_093707) do
     t.integer "age"
     t.float "weight"
     t.string "address"
-    t.decimal "difficulty"
+    t.float "difficulty"
+    t.text "injury"
+    t.text "mechanism_of_injury"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admitted"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
@@ -39,7 +42,8 @@ ActiveRecord::Schema.define(version: 2021_09_13_093707) do
     t.string "password_digest"
     t.integer "capacity"
     t.integer "age"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

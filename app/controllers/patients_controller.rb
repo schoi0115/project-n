@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
 
     skip_before_action :authorize, only: [:create]
     def index
-        patients = Patient.where(user_id: session[:user_id])
+        patients = Patient.where(user_id: session[:user_id], admitted: true)
         render json: patients
     end
 
@@ -25,6 +25,6 @@ class PatientsController < ApplicationController
     private
 
     def patient_params
-        params.permit(:name, :age, :weight, :address, :difficulty, :user_id)
+        params.permit(:name, :age, :weight, :address, :difficulty, :injury, :mechanism_of_injury, :admitted, :user_id)
     end
 end

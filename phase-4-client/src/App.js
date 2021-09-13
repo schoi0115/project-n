@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     fetch('/patients')
     .then(res => res.json())
-    .then(console.log)
+    .then(setPatient)
   },[])
 
   function handlePost(e){
@@ -62,10 +62,10 @@ function App() {
             <Navigation patient={patient} setPatient={setPatient} handlePost={handlePost}/>
           <Switch>
             <Route exact path="/">
-              <Home user={user}/>
+              <Home user={user} patient={patient}/>
             </Route>
             <Route exact path="/patients">
-              <PatientContainer patient={patient}/>
+              <PatientContainer patient={patient} />
             </Route>
             <Route exact path="/patients/new">
               <PatientForm 

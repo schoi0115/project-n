@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Content from "../contents/content"
+import PatientContainer from "../contents/PatientContainer";
 
-function Home({ user, setUser }) {
+
+
+function Home({ user, setUser, patient }) {
 
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
@@ -23,7 +25,13 @@ const [password, setPassword] = useState("");
 
 
     if (user) {
-      return <h1> Welcome, {user.username}!</h1>;
+      return (
+      <div>
+        <h1> Welcome, {user.username}!</h1>;
+      
+        {patient.length > 0 ? <PatientContainer patient={patient}/>  : <h1>Please Add Patients</h1> }
+      </div>)
+      
     } else {
 
       return (
