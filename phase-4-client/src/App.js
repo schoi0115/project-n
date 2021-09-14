@@ -6,31 +6,34 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 
 import PatientForm from "./contents/PatientForm";
-import PatientContainer from "./contents/PatientContainer"
-import PatientDetail from "./contents/PatientDetail"
+import PatientContainer from "./contents/PatientContainer";
+import PatientDetail from "./contents/PatientDetail";
 import Navigation from "./contents/Navigation";
 
 // import NewNote from "./containers/NewNote"
 
 function App() {
   const [user, setUser] = useState(false);
-  const [patient, setPatient] = useState([])
-  const [errors, setErrors] = useState(false)
-
+  const [patient, setPatient] = useState([]);
+  const [errors, setErrors] = useState(false);
 
   useEffect(() => {
-    fetch("me").then((r) => {
+    fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
   }, []);
 
+  console.log(user);
+
   useEffect(() => {
-    fetch('/patients')
-    .then(res => res.json())
-    .then(setPatient)
-  },[])
+    fetch("/patients")
+      .then((res) => res.json())
+      .then(setPatient);
+  }, []);
+
+  console.log(patient);
 
   // async function fetchPatients() {
   //   const response = await fetch('/patients');
@@ -42,71 +45,72 @@ function App() {
   //   console.log(returnPatient)
   // })
 
-
-  function handlePost(e){
+  function handlePost(e) {
     e.preventDefault();
-    fetch('/patients',{
-      method:'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify(
-      )
+    fetch("/patients", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(),
     })
-    .then(res => res.json())
-    .then(data => {
-
-      if(data.errors){
-        setErrors(data.errors)
-      } else {
-        setPatient([...patient,data])
-      }
-    })
-}
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          setPatient([...patient, data]);
+        }
+      });
+  }
   function onLogOut() {
-    setPatient([])
-    setUser(false)
+    setPatient([]);
+    setUser(false);
   }
 
   return (
     <div>
-      <NavBar user={user} setUser={setUser} onLogOut={onLogOut}/>
+      <NavBar user={user} setUser={setUser} onLogOut={onLogOut} />
       <main>
         {user ? (
           <div>
-            <Navigation patient={patient} setPatient={setPatient} handlePost={handlePost}/>
-          <Switch>
-            <Route exact path="/">
-              <Home user={user} patient={patient}/>
-            </Route>
-            <Route exact path="/patients">
-              <PatientContainer patient={patient} />
-            </Route>
-            <Route exact path="/patients/new">
-              <PatientForm 
-              handlePost={handlePost} 
-              setPatient={setPatient} 
+            <Navigation
               patient={patient}
-              errors={errors} 
-              user= {user}
-              />
-            </Route>
-            <Route exact path="/patients/:id/notes/new">
-              <PatientDetail user={user} />
-            </Route>
-            {/* <Route exact path="/patients/:id">
+              setPatient={setPatient}
+              handlePost={handlePost}
+            />
+            <Switch>
+              <Route exact path="/">
+                <Home user={user} patient={patient} />
+              </Route>
+              <Route exact path="/patients">
+                <PatientContainer patient={patient} setPatient={setPatient} />
+              </Route>
+              <Route exact path="/patients/new">
+                <PatientForm
+                  handlePost={handlePost}
+                  setPatient={setPatient}
+                  patient={patient}
+                  errors={errors}
+                  user={user}
+                />
+              </Route>
+              <Route exact path="/patients/:id/notes/new">
+                <PatientDetail user={user} />
+              </Route>
+              {/* <Route exact path="/patients/:id">
               <PatientDetail  />
             </Route> */}
-          </Switch>
+            </Switch>
           </div>
         ) : (
           <Switch>
-            <Route path="/signup">
+            <Route exact path="/signup">
               <SignUp setUser={setUser} />
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login setUser={setUser} />
             </Route>
-            <Route path="/">
-              <Home setUser={setUser}/>
+            <Route exact path="/">
+              <Home setUser={setUser} />
             </Route>
           </Switch>
         )}

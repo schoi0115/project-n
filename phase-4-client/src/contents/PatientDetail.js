@@ -3,14 +3,12 @@ import { useHistory, useParams } from "react-router-dom";
 
 function PatientDetail({ user }) {
   const [notes, setNotes] = useState([]);
-  const [newNote, setNewNote] = useState("")
+  const [newNote, setNewNote] = useState("");
   let history = useHistory();
   let { id } = useParams();
-  // console.log(id)
-  // console.log(user.id);
 
   function handleSubmit(e) {
-    e.preventDefault();  
+    e.preventDefault();
     fetch("/patients/notes/new", {
       method: "POST",
       headers: {
@@ -26,7 +24,7 @@ function PatientDetail({ user }) {
         r.json().then((data) => setNotes([...notes, data]));
       }
     });
-    e.target.reset()
+    e.target.reset();
     // history.push(`/patients/${id}`);
   }
 
@@ -36,19 +34,19 @@ function PatientDetail({ user }) {
       .then(setNotes);
   }, []);
 
- 
-  
   return (
     <div className="lines">
       <h1>Notes</h1>
 
-      <div>{notes.map((eachNote) => {
-        return (
-          <div>
-           <div>{eachNote.note}</div>
-          </div>
-        )
-      })}</div>
+      <div>
+        {notes.map((eachNote) => {
+          return (
+            <div>
+              <div key={eachNote.id}>{eachNote.note}</div>
+            </div>
+          );
+        })}
+      </div>
       <form onSubmit={handleSubmit}>
         <label>
           <input

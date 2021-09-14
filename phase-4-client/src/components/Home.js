@@ -1,41 +1,41 @@
 import React, { useState } from "react";
 import PatientContainer from "../contents/PatientContainer";
 
-
-
 function Home({ user, setUser, patient }) {
-
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
-    function handleSubmit(e) {
-        e.preventDefault();
-        fetch("login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((user) => setUser(user));
-          }
-        });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
       }
+    });
+  }
 
-
-
-    if (user) {
-      return (
+  if (user) {
+    return (
       <div>
         <h1> Welcome, {user.username}!</h1>
-      
-        {patient.length > 0 ? <PatientContainer patient={patient}/>  :  <h1>Please Add Patients</h1> }
-      </div>)
-      
-    } else {
 
-      return (
-        <div>
+        {patient.length > 0 ? (
+          <div>
+            <PatientContainer patient={patient} />
+          </div>
+        ) : (
+          <h1>Please Add Patients</h1>
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div>
         <form onSubmit={handleSubmit}>
           <h1>Please Log In to start your app</h1>
           <label htmlFor="username">Username: </label>
@@ -57,8 +57,8 @@ const [password, setPassword] = useState("");
           <button type="submit">Login</button>
         </form>
       </div>
-      )
-    }
+    );
   }
-  
-  export default Home;
+}
+
+export default Home;

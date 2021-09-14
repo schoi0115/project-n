@@ -1,25 +1,23 @@
-import React from 'react'
-import {NavLink} from "react-router-dom";
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 
 function Navigation({ patient, setPatient, handlePost }) {
   function handleCreatePatientClick() {
-    fetch("/patients/new", { method: "POST" })
-      .then(() => setPatient());
-
-
+    fetch("/patients/new", { method: "POST" }).then(() => setPatient());
   }
 
+  return (
+    <div>
+      <br />
 
-
-    return (
-         <div>
-        
-           <br/>
-    
-           <NavLink to="/patients/new">New Patient</NavLink>
-           <h1><NavLink to="/"> <button>Home</button></NavLink></h1>
-         </div>
-    )
+      <h1>
+        <NavLink to="/">
+          {" "}
+          <button>Home</button>
+        </NavLink>
+      </h1>
+    </div>
+  );
 }
 
 export default Navigation;

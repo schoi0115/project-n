@@ -1,5 +1,5 @@
-  import React, { useState } from "react";
-  import { useHistory } from 'react-router-dom'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
@@ -8,13 +8,12 @@ function SignUp({ setUser }) {
   const [capacity, setCapacity] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState("")
-  let history = useHistory()
-
+  const [age, setAge] = useState("");
+  let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("signup", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,20 +22,18 @@ function SignUp({ setUser }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
-        capacity, 
+        capacity,
         age,
         firstName,
-        lastName
+        lastName,
       }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
-    history.push("/")
+    history.push("/");
   }
-
-  
 
   return (
     <div>
@@ -59,7 +56,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-           <br />
+        <br />
         <label htmlFor="password">Password Confirmation :</label>
         <input
           type="password"
@@ -67,8 +64,8 @@ function SignUp({ setUser }) {
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
-        /> 
-           <br />
+        />
+        <br />
         <label htmlFor="firstName">First Name :</label>
         <input
           type="text"
@@ -76,7 +73,7 @@ function SignUp({ setUser }) {
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
-           <br />
+        <br />
         <label htmlFor="lastName">Last Name :</label>
         <input
           type="text"
@@ -84,7 +81,7 @@ function SignUp({ setUser }) {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
-           <br />
+        <br />
         <label htmlFor="age"> Age :</label>
         <input
           type="text"
@@ -92,16 +89,15 @@ function SignUp({ setUser }) {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-           <br />
+        <br />
         <label htmlFor="capacity">Capacity :</label>
         <input
           type="text"
           id="capacity"
           value={capacity}
           onChange={(e) => setCapacity(e.target.value)}
-         
         />
-           <br />
+        <br />
 
         <button type="submit">Sign Up</button>
       </form>

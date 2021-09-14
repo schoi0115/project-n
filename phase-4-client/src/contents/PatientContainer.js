@@ -2,15 +2,16 @@ import React from "react";
 import PatientCard from "./PatientCard";
 import PatientDetail from "./PatientDetail";
 
-function PatientContainer({ patient }) {
+function PatientContainer({ patient, setPatient }) {
+  function handleCreatePatientClick() {
+    fetch("/patients/new", { method: "POST" }).then(() => setPatient());
+  }
   return (
     <div>
       {patient.map((patient) => {
         return (
-          <div>
-           
+          <div key={patient.id}>
             <PatientCard
-              key={patient.id}
               id={patient.id}
               name={patient.name}
               age={patient.age}
