@@ -1,47 +1,65 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
+function PatientDetail({ user }) {
+  const [notes, setNotes] = useState([]);
+  const [newNote, setNewNote] = useState("")
+  let history = useHistory();
+  let { id } = useParams();
+  // console.log(id)
+  // console.log(user.id);
 
-
-function PatientDetail({user , patient_id}){
-    const [note, setNote] = useState("");
-    let history = useHistory()
-
-    function handleSubmit(e) {
-
-        e.preventDefault();
-        fetch("/patients/notes", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            note,
-            user_id: user.id,
-            patient_id
-          }),
-        }).then((r) => {
-          if (r.ok) {
-            r.json().then((data) => setNote([...note, data]));
-          }
-        });
-        history.push("/patients")
+  function handleSubmit(e) {
+    e.preventDefault();  
+    fetch("/patients/notes/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        note: newNote,
+        user_id: user.id,
+        patient_id: id,
+      }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => setNotes([...notes, data]));
       }
+    });
+    e.target.reset()
+    // history.push(`/patients/${id}`);
+  }
 
-    return(
-        <div className="lines">
-      
-            <h1>
-                Notes
-            </h1>
-            <form onSubmit={handleSubmit}>
-            <input className="note" type="text" onChange={(e) => setNote(e.target.value)} />
-                <input type='submit' value ="Submit"/>
-            </form>
-        
+  useEffect(() => {
+    fetch(`/patients/${id}/notes`)
+      .then((res) => res.json())
+      .then(setNotes);
+  }, []);
 
-        </div>
+ 
+  
+  return (
+    <div className="lines">
+      <h1>Notes</h1>
 
-    )
+      <div>{notes.map((eachNote) => {
+        return (
+          <div>
+           <div>{eachNote.note}</div>
+          </div>
+        )
+      })}</div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input
+            className="notes"
+            type="text"
+            onChange={(e) => setNewNote(e.target.value)}
+          />
+          <input type="submit" value="Submit" />
+        </label>
+      </form>
+    </div>
+  );
 }
-export default PatientDetail
+export default PatientDetail;

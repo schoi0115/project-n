@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get "/patients", to: "patients#index"
   get "/patients/:id", to: "patients#show"
 
-  post "/patients/notes", to: "new_notes#create"
-  get "/patients", to: "new_notes#index"
-  get "/patients/:id", to: "new_notes#show"
+  post "/patients/notes/new", to: "new_notes#create"
+  # get "/patients/:id/notes", to: "new_notes#index"
+  get "/patients/:id/notes", to: "new_notes#show"
 
 
   # patch "/patients/:id/discharge", to: "patients"

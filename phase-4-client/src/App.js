@@ -19,9 +19,7 @@ function App() {
 
 
   useEffect(() => {
-  
     fetch("me").then((r) => {
-  
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -91,8 +89,8 @@ function App() {
               user= {user}
               />
             </Route>
-            <Route exact path="/patients/note">
-              <PatientDetail user={user} patient={patient} />
+            <Route exact path="/patients/:id/notes/new">
+              <PatientDetail user={user} />
             </Route>
             {/* <Route exact path="/patients/:id">
               <PatientDetail  />

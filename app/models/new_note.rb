@@ -1,4 +1,4 @@
 class NewNote < ApplicationRecord
-    belongs_to :patients
-    belongs_to :users
+    belongs_to :patient
+    belongs_to :user
 end

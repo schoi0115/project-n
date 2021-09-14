@@ -27,9 +27,9 @@ const [password, setPassword] = useState("");
     if (user) {
       return (
       <div>
-        <h1> Welcome, {user.username}!</h1>;
+        <h1> Welcome, {user.username}!</h1>
       
-        {patient.length > 0 ? <PatientContainer patient={patient}/>  : <h1>Please Add Patients</h1> }
+        {patient.length > 0 ? <PatientContainer patient={patient}/>  :  <h1>Please Add Patients</h1> }
       </div>)
       
     } else {

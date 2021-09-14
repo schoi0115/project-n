@@ -3,11 +3,6 @@ import {NavLink} from "react-router-dom";
 
 function PatientCard({name, age, weight, address, difficulty, injury, mechanism_of_injury, id}){
 
-    function handleNote(){
-        console.log("test")
-    
-    }
-
     return(
     <div>
         <h1>
@@ -27,7 +22,7 @@ function PatientCard({name, age, weight, address, difficulty, injury, mechanism_
             Assessment Scale: {difficulty}
             <br />
         </h2>
-        <NavLink to="/patients/note"> Patient log (notes) </NavLink>
+        <NavLink to={`/patients/${id}/notes/new`}> Patient log (notes) </NavLink>
     </div>
     )
 }

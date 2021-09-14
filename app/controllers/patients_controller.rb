@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
 
     def create
         patient = Patient.create(patient_params)
-  
+        session[:user_id] = user.id
         if patient
           render json: patient, status: :created
         else
