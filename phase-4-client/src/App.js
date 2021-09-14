@@ -91,6 +91,9 @@ function App() {
               user= {user}
               />
             </Route>
+            <Route exact path="/patients/note">
+              <PatientDetail />
+            </Route>
             {/* <Route exact path="/patients/:id">
               <PatientDetail  />
             </Route> */}

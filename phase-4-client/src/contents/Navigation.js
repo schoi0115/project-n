@@ -15,11 +15,8 @@ function Navigation({ patient, setPatient, handlePost }) {
          <div>
         
            <br/>
-            <button Link to="notes/new" type="submit">
-            Nurse's note
-            </button>
     
-           <NavLink to="/patients/new" onClick={console.log("hi")}>New Patient</NavLink>
+           <NavLink to="/patients/new">New Patient</NavLink>
            <h1><NavLink to="/"> <button>Home</button></NavLink></h1>
          </div>
     )

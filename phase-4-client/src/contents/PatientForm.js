@@ -80,6 +80,7 @@ function PatientForm({setPatient, user, patient}) {
             <input type="text" value={mechanism_of_injury} onChange={(e) => setMoi(e.target.value)} />
           </label>
           <br/>
+          
 
           <input type='submit' value ="Submit"/>
           </form>
