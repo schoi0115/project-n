@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from "react-router-dom";
 
-function PatientCard({name, age, weight, address, difficulty, injury, mechanism_of_injury}){
+function PatientCard({name, age, weight, address, difficulty, injury, mechanism_of_injury, id}){
 
     function handleNote(){
         console.log("test")

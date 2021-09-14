@@ -9,6 +9,7 @@ function PatientContainer({patient}){
             return (
                 <PatientCard
                 key={patient.id}
+                id ={patient.id}
                 name={patient.name}
                 age={patient.age}
                 weight={patient.weight}

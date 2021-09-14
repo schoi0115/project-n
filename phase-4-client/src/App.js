@@ -92,7 +92,7 @@ function App() {
               />
             </Route>
             <Route exact path="/patients/note">
-              <PatientDetail />
+              <PatientDetail user={user} patient={patient} />
             </Route>
             {/* <Route exact path="/patients/:id">
               <PatientDetail  />
