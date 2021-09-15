@@ -1,7 +1,9 @@
+import '../App.css';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import PatientContainer from './PatientContainer';
 
-function PatientForm({setPatient, user, patient}) {
+function PatientForm({user, setPatient, patient}) {
   const [name, setName] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
@@ -10,11 +12,8 @@ function PatientForm({setPatient, user, patient}) {
   const [injury, setInjury] = useState("")
   const [mechanism_of_injury, setMoi] = useState("")
   let history = useHistory()
- 
-
 
     function handleSubmit(e) {
-
       e.preventDefault();
       fetch("/patients/new", {
         method: "POST",
@@ -33,13 +32,13 @@ function PatientForm({setPatient, user, patient}) {
           admitted: true
         }),
       }).then((r) => {
+        console.log(r)
         if (r.ok) {
           r.json().then((data) => setPatient([...patient, data]));
         }
       });
       history.push("/")
     }
-  
   
     return (
       <div>

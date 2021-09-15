@@ -1,27 +1,32 @@
+import '../App.css';
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function NavBar({ user, setUser, onLogOut }) {
+  let history = useHistory()
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then(onLogOut);
+    history.push('/')
   }
 
   return (
     <header>
       <div>
-        <Link to="/">Home</Link>
+        
       </div>
       <div>
         {user ? (
-          <div>
+          <div >
+            <Link className="navBar1" to="/">Home</Link>
             <button onClick={handleLogoutClick}>Logout</button>
 
-            <Link to="/patients/new">New Patient</Link>
+            <Link className="navBar2" to="/patients/new">New Patient</Link>
           </div>
         ) : (
           <div>
-            <Link to="/signup">Signup</Link>
-            <Link to="/login">Login</Link>
+            
+            <Link to="/signup">Sign up</Link>
+            
           </div>
         )}
       </div>

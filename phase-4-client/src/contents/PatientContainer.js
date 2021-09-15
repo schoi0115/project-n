@@ -1,13 +1,21 @@
+import '../App.css';
 import React from "react";
 import PatientCard from "./PatientCard";
-import PatientDetail from "./PatientDetail";
+import NewNoteForm from "./NewNoteForm";
+import { useEffect } from "react"
 
-function PatientContainer({ patient, setPatient }) {
-  function handleCreatePatientClick() {
-    fetch("/patients/new", { method: "POST" }).then(() => setPatient());
-  }
+
+function PatientContainer({patient, setPatient}) {
+
+
+ useEffect(() => {
+    fetch("/patients")
+      .then((res) => res.json())
+      .then(setPatient);
+  }, []);
+
   return (
-    <div>
+    <div className="cardTable">
       {patient.map((patient) => {
         return (
           <div key={patient.id}>

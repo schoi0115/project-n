@@ -2,3 +2,102 @@
     border: 2px solid red;
     border-radius: 4px;
   }
+button{
+  padding: 5px;
+  border: none;
+  background-color: #28de8a;
+  border-radius: 5px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  top: 5px;
+  width: 100px;
+  height: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+.cardTable{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding-bottom: 5%;
+  padding-right: 3%;
+  margin-left: 1%;
+
+  padding: 5em;
+}
+
+.cardIndv{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding-bottom: 5%;
+  padding-right: 3%;
+  margin-left: 1%;
+  width: 300px;
+  height: 300px;
+  padding: 5em;
+  text-align: center;
+
+  background: rgba(100%,100%,100%,0.5);
+}
+
+.navBar1 {
+  text-align: center;
+  display: grid;
+  background-color: bisque;
+  border-radius: 5px;
+  width: 150px;
+  text-shadow: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 400px;
+  top: 2px;
+  width: 100px;
+  height: 30px;
+}
+
+.navBar2 {
+  text-align: center;
+  display: grid;
+  background-color: bisque;
+  border-radius: 5px;
+  width: 150px;
+  text-shadow: black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 250px;
+  top: 2px;
+  width: 100px;
+  height: 30px;
+}
+
+.cardTable:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: translateY(-10px);
+}
+
+.cardIndv:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

@@ -1,7 +1,8 @@
+import '../App.css';
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-function PatientDetail({ user }) {
+function NewNoteForm({ user }) {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
   let history = useHistory();
@@ -60,4 +61,5 @@ function PatientDetail({ user }) {
     </div>
   );
 }
-export default PatientDetail;
+export default NewNoteForm
+;

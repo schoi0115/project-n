@@ -1,4 +1,6 @@
+import '../App.css';
 import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Login({ setUser, getTheData }) {
   const [username, setUsername] = useState("");
@@ -6,7 +8,6 @@ function Login({ setUser, getTheData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("where are we ");
     fetch("/login", {
       method: "POST",
       headers: {
@@ -17,12 +18,10 @@ function Login({ setUser, getTheData }) {
       if (r.ok) {
         r.json().then((user) => setUser(user));
         getTheData();
-        console.log("Hellos");
       }
     });
-    console.log("here?");
   }
-  console.log("test");
+
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -44,8 +43,10 @@ function Login({ setUser, getTheData }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
+       
       </form>
     </div>
+
   );
 }
 

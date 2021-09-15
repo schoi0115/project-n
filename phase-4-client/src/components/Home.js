@@ -1,67 +1,33 @@
+import '../App.css';
 import React, { useState } from "react";
 import PatientContainer from "../contents/PatientContainer";
+import { Link } from "react-router-dom";
+import Login from "./Login"
 
-function Home({ user, setUser, patient, getTheData }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  /////
-//we dont need this fetch
-  ////
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-        getTheData()
-        console.log("are we here!!! ")
-      }
-    });
-  }
-//////
-//we should not have two login forms
-///////
+function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
 
 
-  if (user) {
-    return (
-      <div>
+
+// console.log(patient)
+// console.log(user)
+
+    if (!user)
+       { 
+         return (
+
+        <Login setUser={setUser} setErrors={setErrors} getTheData={getTheData}/> 
+        
+      ) } else {  return (
+
+      <div className="welcome">
         <h1> Welcome, {user.username}!</h1>
-        {patient.length > 0 ?  <PatientContainer patient={patient} /> : <h1>Please Add Patients</h1>}
+         <PatientContainer  patient={patient} setPatient={setPatient}/> 
       </div>
-    );
-  } else {
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h1>Please Log In to start your app</h1>
-          <label htmlFor="username">Username: </label>
-          <input
-            type="text"
-            id="username"
-            autoComplete="off"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
-      </div>
-    );
+
+      )
+      
+      }
+
   }
-}
 
 export default Home;

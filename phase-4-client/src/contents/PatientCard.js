@@ -1,3 +1,4 @@
+import '../App.css';
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
@@ -12,7 +13,7 @@ function PatientCard({
   id,
 }) {
   return (
-    <div>
+    <div className="cardIndv">
       <h1>Name: {name}</h1>
       <h2>
         Age: {age}
