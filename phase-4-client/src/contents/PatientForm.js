@@ -1,7 +1,6 @@
 import "../App.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import PatientContainer from "./PatientContainer";
 
 
 function PatientForm({ user, setPatient, patient }) {
@@ -13,8 +12,7 @@ function PatientForm({ user, setPatient, patient }) {
   const [injury, setInjury] = useState("");
   const [mechanism_of_injury, setMoi] = useState("");
   let history = useHistory();
-  // console.log(user.difference)
-  // console.log("here is out difference")
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -36,10 +34,8 @@ function PatientForm({ user, setPatient, patient }) {
           admitted: true,
         }),
       }).then((r) => {
-        console.log(r);
         if (r.ok) {
           r.json().then((data) => setPatient([...patient, data]));
-          // setUser({...user, difficulty = data.difficulty})
         }
       });
       history.push("/");
@@ -63,7 +59,6 @@ function PatientForm({ user, setPatient, patient }) {
           />
         </label>
         <br />
-
         <label>
           weight:
           <input
@@ -118,7 +113,6 @@ function PatientForm({ user, setPatient, patient }) {
           />
         </label>
         <br />
-
         <input type="submit" value="Submit" />
       </form>
     </div>

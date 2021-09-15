@@ -33,7 +33,6 @@ function PatientContainer({patient, setPatient}) {
               injury={patient.injury}
               mechanism_of_injury={patient.mechanism_of_injury}
               admitted={patient.admitted}
-
               onUpdate={onUpdate}
             />
           </div>

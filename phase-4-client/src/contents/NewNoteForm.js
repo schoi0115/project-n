@@ -37,7 +37,6 @@ function NewNoteForm({ user }) {
   }, []);
 
   function handleDelete(id){
-    console.log('in delete')
     fetch(`/new_notes/${id}`,{
       method: "DELETE",
     })

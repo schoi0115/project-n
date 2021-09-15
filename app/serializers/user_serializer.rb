@@ -3,7 +3,6 @@ class UserSerializer < ActiveModel::Serializer
 
 
   def total_cap
-    # byebug
     self.object.patients.where(admitted: true).sum(:difficulty)
   end
 

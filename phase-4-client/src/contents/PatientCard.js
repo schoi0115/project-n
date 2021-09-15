@@ -1,6 +1,6 @@
 import '../App.css';
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function PatientCard({
   name,
@@ -27,7 +27,6 @@ function PatientCard({
     })
     .then((r) => r.json())
     .then((removePatient) => onUpdate(removePatient.id))
-    
   }
 
   return (
