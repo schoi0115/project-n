@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import PatientContainer from "../contents/PatientContainer";
 
-function Home({ user, setUser, patient }) {
+function Home({ user, setUser, patient, getTheData }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  /////
+//we dont need this fetch
+  ////
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -15,22 +19,21 @@ function Home({ user, setUser, patient }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+        getTheData()
+        console.log("are we here!!! ")
       }
     });
   }
+//////
+//we should not have two login forms
+///////
+
 
   if (user) {
     return (
       <div>
         <h1> Welcome, {user.username}!</h1>
-
-        {patient.length > 0 ? (
-          <div>
-            <PatientContainer patient={patient} />
-          </div>
-        ) : (
-          <h1>Please Add Patients</h1>
-        )}
+        {patient.length > 0 ?  <PatientContainer patient={patient} /> : <h1>Please Add Patients</h1>}
       </div>
     );
   } else {

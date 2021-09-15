@@ -25,15 +25,23 @@ function App() {
     });
   }, []);
 
-  console.log(user);
+  // console.log(user);
 
-  useEffect(() => {
-    fetch("/patients")
-      .then((res) => res.json())
-      .then(setPatient);
-  }, []);
+  // useEffect(() => {
+  //   fetch("/patients")
+  //     .then((res) => res.json())
+  //     .then(setPatient);
+  // }, []);
 
-  console.log(patient);
+  const getTheData = async () => {
+    const response = await fetch("patients");
+    if (!response.ok) throw Error();
+    const data = await response.json();
+    setPatient(data);
+    console.log(data);
+  };
+  console.log("dennis");
+  // console.log(patient);
 
   // async function fetchPatients() {
   //   const response = await fetch('/patients');
@@ -66,6 +74,10 @@ function App() {
     setUser(false);
   }
 
+  ///////////////////////////
+  if (!user) return <Login setUser={setUser} setErrors={setErrors} getTheData={getTheData}/>;
+  ////////////////
+
   return (
     <div>
       <NavBar user={user} setUser={setUser} onLogOut={onLogOut} />
@@ -79,7 +91,7 @@ function App() {
             />
             <Switch>
               <Route exact path="/">
-                <Home user={user} patient={patient} />
+                <Home user={user} patient={patient} getTheData={getTheData} />
               </Route>
               <Route exact path="/patients">
                 <PatientContainer patient={patient} setPatient={setPatient} />
@@ -107,10 +119,10 @@ function App() {
               <SignUp setUser={setUser} />
             </Route>
             <Route exact path="/login">
-              <Login setUser={setUser} />
+              <Login setUser={setUser} getTheData={getTheData} />
             </Route>
             <Route exact path="/">
-              <Home setUser={setUser} />
+              <Home setUser={setUser} getTheData={getTheData} />
             </Route>
           </Switch>
         )}
