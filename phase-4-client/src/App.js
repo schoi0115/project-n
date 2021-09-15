@@ -17,9 +17,7 @@ import NewNoteForm from "./contents/NewNoteForm";
 
 function App() {
   const [user, setUser] = useState(false);
-  
   const [errors, setErrors] = useState(false);
-
   const [patient, setPatient] = useState([]);
 
   useEffect(() => {
@@ -31,7 +29,7 @@ function App() {
         console.log(user)
       }
     });
-  }, []);
+  }, [patient]);
 
   // console.log(user);
 

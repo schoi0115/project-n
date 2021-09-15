@@ -12,21 +12,15 @@ function NavBar({ user, setUser, onLogOut }) {
   return (
     <header>
       <div>
-        
-      </div>
-      <div>
         {user ? (
           <div >
             <Link className="navBar1" to="/">Home</Link>
             <button onClick={handleLogoutClick}>Logout</button>
-
             <Link className="navBar2" to="/patients/new">New Patient</Link>
           </div>
         ) : (
           <div>
-            
             <Link to="/signup">Sign up</Link>
-            
           </div>
         )}
       </div>

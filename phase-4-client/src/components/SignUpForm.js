@@ -25,8 +25,8 @@ function SignUp({ setUser }) {
         password_confirmation: passwordConfirmation,
         capacity,
         age,
-        firstName,
-        lastName,
+        first_name: firstName,
+        last_name: lastName
       }),
     }).then((r) => {
       if (r.ok) {

@@ -7,9 +7,10 @@ import Login from "./Login"
 function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
 
 
+  let difference = user.capacity - user.total_cap
+  // let average = user.total_cap / user.patient.length //and your total pateints today are user.patient.length 
 
-// console.log(patient)
-// console.log(user)
+  // console.log(difference)
 
     if (!user)
        { 
@@ -21,6 +22,10 @@ function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
 
       <div className="welcome">
         <h1> Welcome, {user.username}!</h1>
+        <h1>Here is your capacity: {user.capacity}</h1>
+
+        <h1>Your current total patient's difficulty is {user.total_cap}</h1>
+
          <PatientContainer  patient={patient} setPatient={setPatient}/> 
       </div>
 

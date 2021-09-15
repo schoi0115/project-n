@@ -2,6 +2,9 @@ import '../App.css';
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
+
+import Moment from 'react-moment';
+
 function NewNoteForm({ user }) {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
@@ -41,9 +44,13 @@ function NewNoteForm({ user }) {
 
       <div>
         {notes.map((eachNote) => {
+        
           return (
+            
             <div>
-              <div key={eachNote.id}>{eachNote.note}</div>
+
+              <div key={eachNote.id}>Created by Nurse {eachNote.author_name}: {eachNote.note} <Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
+              </div>
             </div>
           );
         })}
@@ -55,6 +62,7 @@ function NewNoteForm({ user }) {
             type="text"
             onChange={(e) => setNewNote(e.target.value)}
           />
+          
           <input type="submit" value="Submit" />
         </label>
       </form>
