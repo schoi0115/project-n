@@ -16,6 +16,12 @@ class NewNotesController < ApplicationController
         end
     end
 
+    def destroy
+      new_note = NewNote.find_by(id: params[:id])
+      new_note.destroy
+      head :no_content
+    end
+
     private
     def new_note_params
       params.permit(:id, :note, :user_id, :patient_id)

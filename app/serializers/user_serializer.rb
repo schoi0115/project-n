@@ -4,7 +4,7 @@ class UserSerializer < ActiveModel::Serializer
 
   def total_cap
     # byebug
-    self.object.patients.sum(:difficulty)
+    self.object.patients.where(admitted: true).sum(:difficulty)
   end
 
   def difference

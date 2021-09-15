@@ -2,7 +2,7 @@ import '../App.css';
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
-function NavBar({ user, setUser, onLogOut }) {
+function NavBar({ user, onLogOut }) {
   let history = useHistory()
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then(onLogOut);

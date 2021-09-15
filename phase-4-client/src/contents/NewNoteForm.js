@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 import Moment from 'react-moment';
@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 function NewNoteForm({ user }) {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
-  let history = useHistory();
   let { id } = useParams();
 
   function handleSubmit(e) {
@@ -29,7 +28,6 @@ function NewNoteForm({ user }) {
       }
     });
     e.target.reset();
-    // history.push(`/patients/${id}`);
   }
 
   useEffect(() => {
@@ -38,23 +36,26 @@ function NewNoteForm({ user }) {
       .then(setNotes);
   }, []);
 
+  function handleDelete(id){
+    console.log('in delete')
+    fetch(`/new_notes/${id}`,{
+      method: "DELETE",
+    })
+    const removeNote = notes.filter(note => note.id !== id)
+    setNotes(removeNote)
+  }
+
   return (
     <div className="lines">
       <h1>Notes</h1>
-
-      <div>
         {notes.map((eachNote) => {
-        
           return (
-            
-            <div>
-
-              <div key={eachNote.id}>Created by Nurse {eachNote.author_name}: {eachNote.note} <Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
+            <div key={eachNote.id}>
+              <div>Created by Nurse {eachNote.author_name}: {eachNote.note} <Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
               </div>
+              <button onClick={() => handleDelete(eachNote.id)}>Delete</button>
             </div>
-          );
-        })}
-      </div>
+          );})}
       <form onSubmit={handleSubmit}>
         <label>
           <input
@@ -62,7 +63,6 @@ function NewNoteForm({ user }) {
             type="text"
             onChange={(e) => setNewNote(e.target.value)}
           />
-          
           <input type="submit" value="Submit" />
         </label>
       </form>

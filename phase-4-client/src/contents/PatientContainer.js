@@ -1,18 +1,22 @@
 import '../App.css';
 import React from "react";
 import PatientCard from "./PatientCard";
-import NewNoteForm from "./NewNoteForm";
 import { useEffect } from "react"
 
 
 function PatientContainer({patient, setPatient}) {
-
 
  useEffect(() => {
     fetch("/patients")
       .then((res) => res.json())
       .then(setPatient);
   }, []);
+
+
+  function onUpdate(id){
+    const removePatientArray = patient.filter(patient => patient.id !== id)
+    setPatient(removePatientArray)
+  }
 
   return (
     <div className="cardTable">
@@ -29,6 +33,8 @@ function PatientContainer({patient, setPatient}) {
               injury={patient.injury}
               mechanism_of_injury={patient.mechanism_of_injury}
               admitted={patient.admitted}
+
+              onUpdate={onUpdate}
             />
           </div>
         );

@@ -1,6 +1,5 @@
 import '../App.css';
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 
 function Login({ setUser, getTheData }) {
   const [username, setUsername] = useState("");
@@ -43,7 +42,6 @@ function Login({ setUser, getTheData }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
-       
       </form>
     </div>
 

@@ -11,7 +11,25 @@ function PatientCard({
   injury,
   mechanism_of_injury,
   id,
+  admitted,
+  onUpdate
 }) {
+
+
+  function handleRemove(){
+    fetch(`/patients/${id}/discharge`, {
+      method: 'PATCH',
+      headers: { 
+        'Content-Type': 'application/json',
+        Accept: 'application/json' 
+    },
+      body: JSON.stringify({admitted: !admitted})
+    })
+    .then((r) => r.json())
+    .then((removePatient) => onUpdate(removePatient.id))
+    
+  }
+
   return (
     <div className="cardIndv">
       <h1>Name: {name}</h1>
@@ -26,10 +44,11 @@ function PatientCard({
         <br />
         Mechanism of Injury: {mechanism_of_injury}
         <br />
-        Assessment Scale: {difficulty}
+         Assessment Scale: {difficulty}
         <br />
       </h2>
       <Link to={`/patients/${id}/notes/new`}> Patient log (notes) </Link>
+      <button onClick={handleRemove}>Remove</button>
     </div>
   );
 }

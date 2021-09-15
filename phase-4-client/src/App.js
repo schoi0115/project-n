@@ -11,9 +11,6 @@ import Home from "./components/Home";
 import PatientForm from "./contents/PatientForm";
 import PatientContainer from "./contents/PatientContainer";
 import NewNoteForm from "./contents/NewNoteForm";
-// import Navigation from "./contents/Navigation";
-
-// import NewNote from "./containers/NewNote"
 
 function App() {
   const [user, setUser] = useState(false);
