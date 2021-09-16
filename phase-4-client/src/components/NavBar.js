@@ -1,6 +1,6 @@
 import '../App.css';
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 function NavBar({ user, onLogOut }) {
   let history = useHistory()
@@ -10,21 +10,22 @@ function NavBar({ user, onLogOut }) {
   }
 
   return (
-    <header>
+
       <div>
         {user ? (
-          <div >
-            <Link className="navBar1" to="/">Home</Link>
-            <button onClick={handleLogoutClick}>Logout</button>
-            <Link className="navBar2" to="/patients/new">New Patient</Link>
-          </div>
+          <nav className="navBar">
+            <NavLink style={{backgroundColor: "white", textDecoration: "none"}} to="/">Home  </NavLink>
+             | 
+            <NavLink to="/patients/new" style={{backgroundColor: "white", textDecoration: "none"}}>  New Patient</NavLink>
+            <button className="logoutbtn" onClick={handleLogoutClick}>Logout</button>
+          </nav >
         ) : (
-          <div>
-            <Link to="/signup">Sign up</Link>
-          </div>
+          <nav>
+            <NavLink className="signup" to="/signup" >Sign up</NavLink>
+          </nav>
         )}
       </div>
-    </header>
+      
   );
 }
 

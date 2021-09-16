@@ -17,7 +17,7 @@ function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
         <h1>Here is your capacity: {user.capacity}</h1>
         <h1>Your current total patient's difficulty is {user.total_cap}</h1>
 
-         {patient.length > 0 ? <PatientContainer  patient={patient} setPatient={setPatient}/> : <h1>Please Add Patients</h1>}
+        <PatientContainer  patient={patient} setPatient={setPatient}/>
       </div>
       )
     }
