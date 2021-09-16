@@ -16,8 +16,7 @@ function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
         <h2 style={{ marginBottom: "100px" }}>
           Your current total patient's assessment difficulty is {user.total_cap}
         </h2>
-
-        <PatientContainer patient={patient} setPatient={setPatient} />
+        <PatientContainer patient={patient} setPatient={setPatient} /> 
       </div>
     );
   }

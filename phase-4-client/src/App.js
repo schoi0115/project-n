@@ -78,10 +78,6 @@ function App() {
           <Route exact path="/login">
             <Login setUser={setUser} getTheData={getTheData} />
           </Route>
-
-          <Route exact path="/">
-            <Home setUser={setUser} getTheData={getTheData} />
-          </Route>
         </Switch>
       </main>
     </div>

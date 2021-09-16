@@ -10,22 +10,16 @@ function NavBar({ user, onLogOut }) {
   }
 
   return (
-
       <div>
-        {user ? (
+        {user ?
           <nav className="navBar">
             <NavLink style={{backgroundColor: "white", textDecoration: "none"}} to="/">Home  </NavLink>
              | 
             <NavLink to="/patients/new" style={{backgroundColor: "white", textDecoration: "none"}}>  New Patient</NavLink>
             <button className="logoutbtn" onClick={handleLogoutClick}>Logout</button>
-          </nav >
-        ) : (
-          <nav>
-            <NavLink className="signup" to="/signup" >Sign up</NavLink>
-          </nav>
-        )}
+            {/* <NavLink to="/" onClick={handleLogoutClick}>LogOut</NavLink> */}
+          </nav > : null }
       </div>
-      
   );
 }
 

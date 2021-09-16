@@ -83,38 +83,44 @@ input {
   line-height: 1.2;
 }
 .patientForm {
-  /* margin-left: auto;
-  margin-right: auto;
-  /* width: 40em; */
-  /* margin-top: 80px; 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  align-items: end  */
-  /* padding-left: 50px;
-  padding-right: 50px; */
+}
+.patientForm label {
+  display: block;
+  position: relative;
+
+}
+.patientForm input[type=text] {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-radius: 7px 
+}
+.formSubmit {
+  width: 200px
 }
 
-.ms .patientForm input {
-  flex-flow: row wrap;
-}
 .ms select {
-  position: fixed;
-  text-align: center;
   background-color: white;
-  font-family: Comfortaa;
-  font-size: 22px;
-  margin-left: 20px;
-  margin-top: 3px;
+  font-size: 15px;
+  /* margin-left: 20px; */
+  width: 208px;
+  border-radius: 7px;
+  border-width: 2px;
+  
 }
-.ms {
+
+/* .ms {
   text-align: center;
   margin-top: 100px;
   font-size: 25px;
   line-height: 50px;
-}
+} */
+
 .patientForm .submitBtn {
   margin-top: 25px;
   border-radius: 8px;

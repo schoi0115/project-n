@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 
 function SignUp({ setUser }) {
   const [username, setUsername] = useState("");
@@ -41,6 +41,9 @@ function SignUp({ setUser }) {
 
   return (
     <div>
+      <nav>
+        <NavLink to="/">Log In</NavLink>
+      </nav>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
