@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
 
     def create
         patient = Patient.create(patient_params)
-        if patient
+        if patient.valid?
           render json: patient, status: :created
         else
           render json: { errors: patient.errors.full_messages }, status: :unprocessable_entity

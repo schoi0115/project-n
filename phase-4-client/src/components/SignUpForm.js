@@ -1,4 +1,4 @@
-import '../App.css';
+import "../App.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -10,6 +10,7 @@ function SignUp({ setUser }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
+  const [errors, setErrors] = useState([]);
   let history = useHistory();
 
   function handleSubmit(e) {
@@ -26,18 +27,28 @@ function SignUp({ setUser }) {
         capacity,
         age,
         first_name: firstName,
-        last_name: lastName
+        last_name: lastName,
       }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+        history.push("/");
+      } else {
+        r.json().then((data) => setErrors(data.errors));
       }
     });
-    history.push("/");
   }
 
   return (
     <div>
+      {errors.length > 0 && (
+        <div style={{ color: "red" }}>
+          {errors.map((error) => (
+            <p key={error}>{error}</p>
+          ))}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <label htmlFor="username">Username :</label>

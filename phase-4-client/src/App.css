@@ -1,15 +1,14 @@
-*{
-
+* {
   background-color: rgba(235, 255, 254, 0.884);
   font-family: Comfortaa;
 }
 
 .note {
-    border: 2px solid red;
-    border-radius: 4px;
-  }
-  
-.logoutbtn{
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.logoutbtn {
   padding: 5px;
   border: none;
   background-color: white;
@@ -22,19 +21,19 @@
   top: 5px;
   width: 100px;
   height: 30px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.navBar{
-text-align: center;
-font-family: Comfortaa;
-background-color: white;
-padding:20px;
-font-weight: 900;
-font-size: 25px
+.navBar {
+  text-align: center;
+  font-family: Comfortaa;
+  background-color: white;
+  padding: 20px;
+  font-weight: 900;
+  font-size: 25px;
 }
 
-.loginContainer .appName{
+.loginContainer .appName {
   font-size: 50px;
 }
 
@@ -44,49 +43,46 @@ font-size: 25px
   margin-top: 200px;
   font-size: 20px;
 }
-.loginButton{
+.loginButton {
   margin-top: 25px;
   border-radius: 8px;
   background-color: white;
   font-family: Comfortaa;
   padding: 8px 8px;
   font-weight: 900;
-  font-size: 18px
+  font-size: 18px;
 }
- input{
+input {
   background-color: white;
- 
- }
- .signup{
+}
+.signup {
   font-family: Comfortaa;
   padding: 8px 8px;
   font-weight: 900;
   font-size: 18px;
-  text-decoration: none
- }
+  text-decoration: none;
+}
 
- .welcome{
-   text-align: center;
-   margin-top: 50px;
- }
+.welcome {
+  text-align: center;
+  margin-top: 50px;
+}
 
- .cardContainer {
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
- 
- }
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
- .cardIndv{
-   border: 5px solid;
-   border-color: lightgray;
-   padding: 5px;
-   width: 500px;
-   margin: 1em;
-   line-height: 1.2;
-  
- }
- .patientForm{
+.cardIndv {
+  border: 5px solid;
+  border-color: lightgray;
+  padding: 5px;
+  width: 500px;
+  margin: 1em;
+  line-height: 1.2;
+}
+.patientForm {
   /* margin-left: auto;
   margin-right: auto;
   /* width: 40em; */
@@ -99,37 +95,26 @@ font-size: 25px
   align-items: end  */
   /* padding-left: 50px;
   padding-right: 50px; */
-
-
- }
+}
 
 .ms .patientForm input {
-
   margin-bottom: 10px;
   margin-left: 500px;
-
 }
-.ms{
+.ms {
   text-align: center;
   margin-top: 100px;
   font-size: 25px;
-  
 }
 .patientForm .submitBtn {
-  
-    margin-top: 25px;
-    border-radius: 8px;
-    background-color: white;
-    font-family: Comfortaa;
-    padding: 8px 8px;
-    font-weight: 900;
-    font-size: 18px;
-    width: 100px
-
+  margin-top: 25px;
+  border-radius: 8px;
+  background-color: white;
+  font-family: Comfortaa;
+  padding: 8px 8px;
+  font-weight: 900;
+  font-size: 18px;
+  width: 100px;
 }
 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
