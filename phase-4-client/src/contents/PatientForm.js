@@ -47,11 +47,14 @@ function PatientForm({ user, setPatient, patient }) {
   }
 
   return (
-    <div>
-      <h1>Here is your {user.difference} capacity left</h1>
+    <div className="ms">
+    <h1>Nurse {user.first_name} capacity difference: {user.difference}</h1>
+ 
+    <div className="patientForm">
+     
       <form onSubmit={handleSubmit}>
         <label>
-          name:
+          name: 
           <input
             type="text"
             value={name}
@@ -60,7 +63,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          weight:
+          weight: 
           <input
             type="text"
             value={weight}
@@ -69,7 +72,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          age:
+          age: 
           <input
             type="text"
             value={age}
@@ -78,7 +81,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          address:
+          address: 
           <input
             type="text"
             value={address}
@@ -87,7 +90,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          difficulty:
+          difficulty: 
           <input
             type="number"
             value={difficulty}
@@ -96,7 +99,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          injury:
+          injury: 
           <input
             type="text"
             value={injury}
@@ -105,7 +108,7 @@ function PatientForm({ user, setPatient, patient }) {
         </label>
         <br />
         <label>
-          mechanism_of_injury:
+          mechanism of injury: 
           <input
             type="text"
             value={mechanism_of_injury}
@@ -113,9 +116,10 @@ function PatientForm({ user, setPatient, patient }) {
           />
         </label>
         <br />
-        <input type="submit" value="Submit" />
+        <br />
+        <input class="submitBtn" type="submit" value="Submit" />
       </form>
-    </div>
+    </div></div>
   );
 }
 

@@ -1,6 +1,10 @@
 import '../App.css';
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiNotepad } from "react-icons/bi";
+import { GoTrashcan, GoPlus } from "react-icons/go";
+
+
 
 function PatientCard({
   name,
@@ -31,7 +35,7 @@ function PatientCard({
 
   return (
     <div className="cardIndv">
-      <h1>Name: {name}</h1>
+      <h1>Name: {name}</h1> 
       <h2>
         Age: {age}
         <br />
@@ -46,8 +50,13 @@ function PatientCard({
          Assessment Scale: {difficulty}
         <br />
       </h2>
-      <Link to={`/patients/${id}/notes/new`}> Patient log (notes) </Link>
-      <button onClick={handleRemove}>Remove</button>
+      <Link to={`/patients/${id}/notes/new`} style={{textDecoration: "none"}}>
+        {/* <text style={{fontSize: "30px", marginBottom: "100px"}}>+</text> */}
+        <GoPlus />
+        <BiNotepad size={40}/>
+      </Link>
+   
+      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40}/></button>
     </div>
   );
 }

@@ -13,11 +13,11 @@ function Home({ setErrors, user, setUser, getTheData, patient, setPatient }) {
       ) } else {  return (
 
       <div className="welcome">
-        <h1> Welcome, {user.username}!</h1>
-        <h1>Here is your capacity: {user.capacity}</h1>
-        <h1>Your current total patient's difficulty is {user.total_cap}</h1>
+        <h1> Welcome Nurse {user.first_name}!</h1>
+        <h2>Your total assessment capacity: {user.capacity}</h2>
+        <h2 style={{marginBottom: "100px"}}>Your current total patient's assessment difficulty is {user.total_cap}</h2>
 
-        <PatientContainer  patient={patient} setPatient={setPatient}/>
+        <PatientContainer patient={patient} setPatient={setPatient}/>
       </div>
       )
     }

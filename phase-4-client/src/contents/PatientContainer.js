@@ -19,7 +19,7 @@ function PatientContainer({patient, setPatient}) {
   }
 
   return (
-    <div className="cardTable">
+    <div className="cardContainer">
       {patient.map((patient) => {
         return (
           <div key={patient.id}>
