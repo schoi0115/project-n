@@ -35,7 +35,7 @@ function PatientCard({
 
   return (
     <div className="cardIndv">
-      <h1>Name: {name}</h1> 
+      <h1 >Name: {name}</h1> 
       <h2>
         Age: {age}
         <br />
@@ -56,7 +56,7 @@ function PatientCard({
         <BiNotepad size={40}/>
       </Link>
    
-      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40}/></button>
+      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40} color="darkred"/></button>
     </div>
   );
 }

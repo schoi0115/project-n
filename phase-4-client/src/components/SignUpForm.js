@@ -40,7 +40,8 @@ function SignUp({ setUser }) {
   }
 
   return (
-    <div>
+    <div className="signup">
+       <h1>Sign Up</h1>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
@@ -50,7 +51,7 @@ function SignUp({ setUser }) {
       )}
 
       <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
+        
         <label htmlFor="username">Username :</label>
         <input
           type="text"
@@ -59,7 +60,7 @@ function SignUp({ setUser }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <br />
+     
         <label htmlFor="password">Password :</label>
         <input
           type="password"
@@ -68,7 +69,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-        <br />
+      
         <label htmlFor="password">Password Confirmation :</label>
         <input
           type="password"
@@ -77,7 +78,7 @@ function SignUp({ setUser }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <br />
+     
         <label htmlFor="firstName">First Name :</label>
         <input
           type="text"
@@ -85,7 +86,7 @@ function SignUp({ setUser }) {
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <br />
+    
         <label htmlFor="lastName">Last Name :</label>
         <input
           type="text"
@@ -93,7 +94,7 @@ function SignUp({ setUser }) {
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
-        <br />
+        
         <label htmlFor="age"> Age :</label>
         <input
           type="text"
@@ -101,7 +102,6 @@ function SignUp({ setUser }) {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <br />
         <label htmlFor="capacity">Capacity :</label>
         <input
           type="text"
@@ -109,8 +109,8 @@ function SignUp({ setUser }) {
           value={capacity}
           onChange={(e) => setCapacity(e.target.value)}
         />
-        <br />
 
+            <br/>
         <button type="submit">Sign Up</button>
       </form>
     </div>
