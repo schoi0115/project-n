@@ -41,11 +41,11 @@ function PatientForm({ user, setPatient, patient }) {
           r.json().then((data) => setErrors(data.errors));
         }
       });
+    } else {
+      window.alert(
+        "This patient's difficulty level brings you above your capacity."
+      );
     }
-    console.log("here are your erros ");
-    // window.alert(
-    //   "This patient's difficulty level brings you above your capacity."
-    // );
   }
 
   return (
@@ -107,7 +107,6 @@ function PatientForm({ user, setPatient, patient }) {
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value)}
             >
-              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

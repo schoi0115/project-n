@@ -98,13 +98,22 @@ input {
 }
 
 .ms .patientForm input {
-  margin-bottom: 10px;
-  margin-left: 500px;
+  flex-flow: row wrap;
+}
+.ms select {
+  position: fixed;
+  text-align: center;
+  background-color: white;
+  font-family: Comfortaa;
+  font-size: 22px;
+  margin-left: 20px;
+  margin-top: 3px;
 }
 .ms {
   text-align: center;
   margin-top: 100px;
   font-size: 25px;
+  line-height: 50px;
 }
 .patientForm .submitBtn {
   margin-top: 25px;
