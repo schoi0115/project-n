@@ -220,3 +220,50 @@ input {
   color: darkgrey;
 }
 
+.noteDiv{
+  text-align: center;
+}
+
+.notes{
+  width: 60%;
+  min-height: 5px;
+  margin-top: 50px;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: white;
+
+}
+
+
+.notebtn{
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-bottom: 90px;
+  
+  
+ }
+
+ .notebtn button:hover {
+  background-color: royalblue;
+}
+
+.createdNotes{
+  line-height: 30px;
+}
+
+.noteDiv button{
+
+  border-radius: 8px;
+  background-color: white;
+  font-family: Comfortaa;
+  font-weight: 900;
+  font-size: 15px;
+  width: 80px;
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}

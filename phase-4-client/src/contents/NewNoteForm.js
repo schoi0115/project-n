@@ -45,24 +45,26 @@ function NewNoteForm({ user }) {
   }
 
   return (
-    <div className="lines">
+    <div className="noteDiv">
       <h1>Notes</h1>
         {notes.map((eachNote) => {
           return (
-            <div key={eachNote.id}>
-              <div>Created by Nurse {eachNote.author_name}: {eachNote.note} <Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
+            <div key={eachNote.id} className="createdNotes">
+              <div>Created by Nurse {eachNote.author_name}: {eachNote.note} <button onClick={() => handleDelete(eachNote.id)}>Delete</button><br /><Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
               </div>
-              <button onClick={() => handleDelete(eachNote.id)}>Delete</button>
+              
             </div>
           );})}
       <form onSubmit={handleSubmit}>
         <label>
-          <input
+          <textarea
             className="notes"
             type="text"
             onChange={(e) => setNewNote(e.target.value)}
+            placeholder="Add a New Note"
           />
-          <input type="submit" value="Submit" />
+          <br />
+          <input className="notebtn" type="submit" value="Submit" />
         </label>
       </form>
     </div>
