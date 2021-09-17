@@ -114,22 +114,21 @@ input {
   
 }
 
-/* .ms {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 25px;
-  line-height: 50px;
-} */
+.ms {
+  margin-bottom: 30px;
+} 
 
 .patientForm .submitBtn {
   margin-top: 25px;
   border-radius: 8px;
   background-color: white;
   font-family: Comfortaa;
-  padding: 8px 8px;
+  /* padding: 8px 8px; */
   font-weight: 900;
   font-size: 18px;
   width: 100px;
+  margin-left: 50px
 }
+
 
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");

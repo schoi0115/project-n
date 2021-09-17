@@ -50,14 +50,14 @@ function PatientForm({ user, setPatient, patient }) {
 
   return (
     <div className="ms">
-      <h1>
+      <h1 style={{textAlign: "center"}}>
         Nurse {user.first_name} capacity difference: {user.difference}
       </h1>
 
       {errors.length > 0 && (
-        <div style={{ color: "red" }}>
+        <div style={{ color: "red", textAlign: 'center'}}>
           {errors.map((error) => (
-            <p key={error}>{error}</p>
+            <p key={error} style={{margin: "5px"}}>{error}</p>
           ))}
         </div>
       )}
@@ -65,7 +65,7 @@ function PatientForm({ user, setPatient, patient }) {
       <div className="patientForm" >
         <form onSubmit={handleSubmit} className="formSubmit">
           <label>
-            name:
+            Name:
             <input
               type="text"
               value={name}
@@ -74,7 +74,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            weight:
+            Weight:
             <input
               type="text"
               value={weight}
@@ -83,7 +83,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            age:
+            Age:
             <input
               type="text"
               value={age}
@@ -92,7 +92,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            address:
+            Home Address:
             <input
               type="text"
               value={address}
@@ -101,7 +101,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            injury:
+            Injury:
             <input
               type="text"
               value={injury}
@@ -110,7 +110,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            mechanism of injury:
+            Mechanism Of Injury:
             <input
               type="text"
               value={mechanism_of_injury}
@@ -119,7 +119,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            difficulty:
+            Difficulty:
             <select
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value)}
@@ -138,7 +138,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <br />
-          <input class="submitBtn" type="submit" value="Submit" />
+          <input className="submitBtn" type="submit" value="Submit" />
         </form>
       </div>
     </div>
