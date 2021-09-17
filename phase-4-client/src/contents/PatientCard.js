@@ -43,11 +43,11 @@ function PatientCard({
         <br />
         Address: {address}
         <br />
-        Injury: {injury}
+        Chief Complaint: {injury}
         <br />
-        Mechanism of Injury: {mechanism_of_injury}
+        Cause of Injury: {mechanism_of_injury}
         <br />
-         Assessment Scale: {difficulty}
+        Assessment Scale: {difficulty}
         <br />
       </h2>
       <Link to={`/patients/${id}/notes/new`} style={{textDecoration: "none"}}>

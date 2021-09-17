@@ -50,7 +50,7 @@ function PatientForm({ user, setPatient, patient }) {
 
   return (
     <div className="ms">
-      <h1 style={{textAlign: "center"}}>
+      <h1 style={{textAlign: "center", margin: "35px"}}>
         Nurse {user.first_name} capacity difference: {user.difference}
       </h1>
 
