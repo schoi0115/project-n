@@ -101,7 +101,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            Injury:
+            Chief Complaint:
             <input
               type="text"
               value={injury}
@@ -110,7 +110,7 @@ function PatientForm({ user, setPatient, patient }) {
           </label>
           <br />
           <label>
-            Mechanism Of Injury:
+            Cause of Injury:
             <input
               type="text"
               value={mechanism_of_injury}

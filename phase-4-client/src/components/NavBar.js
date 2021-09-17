@@ -17,7 +17,6 @@ function NavBar({ user, onLogOut }) {
              | 
             <NavLink to="/patients/new" style={{backgroundColor: "white", textDecoration: "none"}}>  New Patient</NavLink>
             <button className="logoutbtn" onClick={handleLogoutClick}>Logout</button>
-            {/* <NavLink to="/" onClick={handleLogoutClick}>LogOut</NavLink> */}
           </nav > : null }
       </div>
   );
