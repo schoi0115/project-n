@@ -19,7 +19,8 @@ function Login({ setUser, getTheData }) {
         r.json().then((user) => setUser(user));
         getTheData();
       } else {
-        window.alert("Your ID/Password is invalid");
+        r.json().then((data) => window.alert(data.error));
+        // window.alert("Your ID/Password is invalid");
       }
     });
   }
