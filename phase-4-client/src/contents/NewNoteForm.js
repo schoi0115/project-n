@@ -1,9 +1,8 @@
-import '../App.css';
+import "../App.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-
-import Moment from 'react-moment';
+import Moment from "react-moment";
+import { GoTrashcan } from "react-icons/go";
 
 function NewNoteForm({ user }) {
   const [notes, setNotes] = useState([]);
@@ -24,7 +23,7 @@ function NewNoteForm({ user }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((data) => setNotes([...notes, data]));
+        r.json().then((data) => setNotes([data, ...notes]));
       }
     });
     e.target.reset();
@@ -36,39 +35,53 @@ function NewNoteForm({ user }) {
       .then(setNotes);
   }, []);
 
-  function handleDelete(id){
-    fetch(`/new_notes/${id}`,{
+  function handleDelete(id) {
+    fetch(`/new_notes/${id}`, {
       method: "DELETE",
-    })
-    const removeNote = notes.filter(note => note.id !== id)
-    setNotes(removeNote)
+    });
+    const removeNote = notes.filter((note) => note.id !== id);
+    setNotes(removeNote);
   }
 
   return (
-    <div className="noteDiv">
-      <h1>Notes</h1>
+    <div>
+      <h1 className="notesHeader">Notes </h1>
+      <div className="noteCardContainer">
+        <form className="noteForm" onSubmit={handleSubmit}>
+          <label>
+            <textarea
+              className="notes"
+              type="text"
+              onChange={(e) => setNewNote(e.target.value)}
+              placeholder="Add a New Note"
+            />
+            <br />
+            <input className="notebtn" type="submit" value="Submit" />
+          </label>
+        </form>
+      </div>
+      <div className="noteCardContainer">
         {notes.map((eachNote) => {
           return (
-            <div key={eachNote.id} className="createdNotes">
-              <div>Created by Nurse {eachNote.author_name}: {eachNote.note} <button onClick={() => handleDelete(eachNote.id)}>Delete</button><br /><Moment format="MMM Do YYYY - HH:mm">{eachNote.created_at}</Moment>
+            <div key={eachNote.id} className="noteCard">
+              <div>
+                <h3>Created by Nurse {eachNote.author_name}</h3>
+                <p>{eachNote.note} </p>
+                <h4>
+                  <Moment format="MMM Do YYYY - HH:mm">
+                    {eachNote.created_at}
+                  </Moment>
+                </h4>
+                <button style={{border: "none"}} onClick={() => handleDelete(eachNote.id)}>
+                  Delete
+                <GoTrashcan size={20} color="black" style={{marginTop: "10px"}} />
+                </button>
               </div>
-              
             </div>
-          );})}
-      <form onSubmit={handleSubmit}>
-        <label>
-          <textarea
-            className="notes"
-            type="text"
-            onChange={(e) => setNewNote(e.target.value)}
-            placeholder="Add a New Note"
-          />
-          <br />
-          <input className="notebtn" type="submit" value="Submit" />
-        </label>
-      </form>
+          );
+        })}
+      </div>
     </div>
   );
 }
-export default NewNoteForm
-;
+export default NewNoteForm;
