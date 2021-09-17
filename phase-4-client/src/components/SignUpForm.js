@@ -40,14 +40,14 @@ function SignUp({ setUser }) {
   }
 
   return (
-    <div>
-      <nav>
-        <NavLink to="/">Log In</NavLink>
+    <div className="signup">
+      <nav className="signupNav" style={{marginBottom: "50px"}}>
+        <NavLink to="/" style={{textDecoration:"none"}}>Log In</NavLink>
       </nav>
       {errors.length > 0 && (
         <div style={{ color: "red" }}>
           {errors.map((error) => (
-            <p key={error}>{error}</p>
+            <p key={error} style={{margin: "5px"}}>{error}</p>
           ))}
         </div>
       )}

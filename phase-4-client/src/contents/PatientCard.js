@@ -56,7 +56,7 @@ function PatientCard({
         <BiNotepad size={40}/>
       </Link>
    
-      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40}/></button>
+      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40} color="darkred"/></button>
     </div>
   );
 }

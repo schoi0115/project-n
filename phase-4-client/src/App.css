@@ -3,6 +3,9 @@
   font-family: Comfortaa;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+
+
 .note {
   border: 2px solid red;
   border-radius: 4px;
@@ -22,6 +25,7 @@
   width: 100px;
   height: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
 }
 
 .navBar {
@@ -31,6 +35,10 @@
   padding: 20px;
   font-weight: 900;
   font-size: 25px;
+}
+
+.navBar :hover{
+  color: darkgrey;
 }
 
 .loginContainer .appName {
@@ -68,6 +76,12 @@ input {
   margin-top: 50px;
 }
 
+.lettering {
+  color: rgb(102, 102, 102);
+  
+  text-shadow: 2px 2px rgb(219, 219, 219);
+}
+
 .cardContainer {
   display: flex;
   justify-content: center;
@@ -81,7 +95,17 @@ input {
   width: 500px;
   margin: 1em;
   line-height: 1.2;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+.cardContainer :hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 .patientForm {
   display: flex;
   justify-content: center;
@@ -131,4 +155,65 @@ input {
 }
 
 
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+.signup {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 25px;
+  line-height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+.signup input{
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 300px;
+  border-color: black;
+  border-radius: 4px;
+  
+
+}
+
+.signup input:hover {
+  
+  border-color: blue;
+}
+
+.signup label{
+  text-align: center;
+  margin: 5px 10px 5px 0;
+
+  display: block;
+  position: relative
+}
+
+.signup button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  border-radius: 5px;
+  margin-top: 50px;
+
+}
+
+.signup button:hover {
+  background-color: royalblue;
+}
+
+.signupNav{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 25px;
+}
+.signupNav :hover{
+  color: darkgrey;
+}
+
