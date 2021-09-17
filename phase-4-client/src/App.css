@@ -86,7 +86,8 @@ input {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
+  margin: auto;
+  margin-bottom: 100px;
 }
 
 .cardIndv {
@@ -98,14 +99,25 @@ input {
   line-height: 1.2;
   border-radius: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  height: 400px
+  height: 390px;
+  position: relative;
+}
+.buttonHolder {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  width: 95%
 }
 
-.cardIndv :hover{
+.cardContainer :hover .cardIndv{
   transform: translateY(-2px);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   border-radius: 15px;
   cursor: pointer;
+}
+
+button {
+  cursor:pointer; 
 }
 
 .patientForm {
@@ -228,8 +240,6 @@ input {
   width: 60%;
   min-height: 5px;
   margin-top: 50px;
-  word-wrap: break-word;
-  word-break: break-all;
   background-color: white;
 
 }
@@ -267,3 +277,4 @@ input {
   margin-right: 30px;
   
 }
+

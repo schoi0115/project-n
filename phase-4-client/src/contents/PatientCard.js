@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BiNotepad } from "react-icons/bi";
 import { GoTrashcan, GoPlus } from "react-icons/go";
-
+import { HiMinus } from "react-icons/hi";
 
 
 function PatientCard({
@@ -50,13 +50,16 @@ function PatientCard({
         Assessment Scale: {difficulty}
         <br />
       </h2>
+      <div className="buttonHolder">
       <Link to={`/patients/${id}/notes/new`} style={{textDecoration: "none"}}>
-        {/* <text style={{fontSize: "30px", marginBottom: "100px"}}>+</text> */}
-        <GoPlus />
+        <GoPlus style={{marginBottom: "9px"}}/>
         <BiNotepad size={40}/>
       </Link>
    
-      <button onClick={handleRemove} style={{border: "none"}}><text style={{fontSize: "30px", marginBottom: "100px"}}>-</text><GoTrashcan size={40} color="darkred"/></button>
+      <button onClick={handleRemove} style={{border: "none"}} >
+        <HiMinus style={{marginBottom: "9px"}} color="darkred"/>
+        <GoTrashcan size={40} color="darkred" /></button>
+      </div>
     </div>
   );
 }
