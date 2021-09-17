@@ -98,6 +98,7 @@ input {
   line-height: 1.2;
   border-radius: 15px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
 }
 
 .cardContainer :hover{
@@ -106,7 +107,24 @@ input {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   border-radius: 15px;
   cursor: pointer;
+}
+.cardContainer:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;        
+  z-index: -1;
+  transition: background-color 1s;
+}
 
+.cardContainer :hover:before{
+  top: -50px;
+  bottom: -50px;
+  left: -50px;
+  right: -50px;     
+  background: #3D6AA2;    
 }
 
 
@@ -201,9 +219,6 @@ input {
 .singupNav :hover{
   color: darkgrey;
 }
-
-
-
 
 
 
