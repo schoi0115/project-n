@@ -5,7 +5,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
 
-
 .note {
   border: 2px solid red;
   border-radius: 4px;
@@ -37,7 +36,7 @@
   font-size: 25px;
 }
 
-.navBar :hover{
+.navBar :hover {
   color: darkgrey;
 }
 
@@ -78,7 +77,7 @@ input {
 
 .lettering {
   color: rgb(102, 102, 102);
-  
+
   text-shadow: 2px 2px rgb(219, 219, 219);
 }
 
@@ -86,7 +85,6 @@ input {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 .cardIndv {
@@ -97,13 +95,13 @@ input {
   margin: 1em;
   line-height: 1.2;
   border-radius: 15px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  height: 400px
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  height: 400px;
 }
 
-.cardIndv :hover{
+.cardIndv :hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   cursor: pointer;
 }
@@ -115,19 +113,19 @@ input {
   flex-wrap: wrap;
   flex-direction: column;
 }
+
 .patientForm label {
   display: block;
   position: relative;
-
 }
-.patientForm input[type=text] {
+.patientForm input[type="text"] {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
-  border-radius: 7px 
+  border-radius: 7px;
 }
 .formSubmit {
-  width: 200px
+  width: 200px;
 }
 
 .ms select {
@@ -137,12 +135,11 @@ input {
   width: 208px;
   border-radius: 7px;
   border-width: 2px;
-  
 }
 
 .ms {
   margin-bottom: 30px;
-} 
+}
 
 .patientForm .submitBtn {
   margin-top: 25px;
@@ -153,9 +150,8 @@ input {
   font-weight: 900;
   font-size: 18px;
   width: 100px;
-  margin-left: 50px
+  margin-left: 50px;
 }
-
 
 .signup {
   text-align: center;
@@ -168,9 +164,8 @@ input {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-
 }
-.signup input{
+.signup input {
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
@@ -179,21 +174,18 @@ input {
   width: 300px;
   border-color: black;
   border-radius: 4px;
-  
-
 }
 
 .signup input:hover {
-  
   border-color: blue;
 }
 
-.signup label{
+.signup label {
   text-align: center;
   margin: 5px 10px 5px 0;
 
   display: block;
-  position: relative
+  position: relative;
 }
 
 .signup button {
@@ -204,38 +196,55 @@ input {
   border-radius: 5px;
   margin-top: 50px;
   margin-bottom: 100px;
-
 }
 
 .signup button:hover {
   background-color: royalblue;
 }
 
-.signupNav{
+.signupNav {
   text-align: center;
   margin-top: 20px;
   font-size: 25px;
 }
-.signupNav :hover{
+.signupNav :hover {
   color: darkgrey;
 }
 
-.noteDiv{
+.notesHeader {
   text-align: center;
+  margin-top: 50px;
 }
+/* .noteDiv {
+  text-align: center;
+} */
 
-.notes{
-  width: 60%;
-  min-height: 5px;
+.noteCardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.noteCard {
+  border: 5px solid;
+  border-color: lightgray;
+  padding: 25px;
+  width: 33%;
+  margin: 1em;
+  line-height: 1.2;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  height: 33%;
+}
+.notes {
+  width: 350px;
+  min-height: 60px;
   margin-top: 50px;
   word-wrap: break-word;
   word-break: break-all;
   background-color: white;
-
 }
 
-
-.notebtn{
+.notebtn {
   padding: 10px 20px;
   background-color: dodgerblue;
   border: 1px solid #ddd;
@@ -243,20 +252,25 @@ input {
   border-radius: 5px;
   margin-top: 50px;
   margin-bottom: 90px;
-  
-  
- }
+  display: flex;
+}
 
- .notebtn button:hover {
+.notebtn button:hover {
   background-color: royalblue;
 }
 
-.createdNotes{
+.createdNotes {
   line-height: 30px;
 }
 
-.noteDiv button{
-
+.noteForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.noteDiv button {
   border-radius: 8px;
   background-color: white;
   font-family: Comfortaa;
@@ -265,5 +279,4 @@ input {
   width: 80px;
   margin-left: 30px;
   margin-right: 30px;
-  
 }

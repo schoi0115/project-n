@@ -3,7 +3,7 @@ class NewNotesController < ApplicationController
   skip_before_action :authorize, only: [:create]
 
     def show
-      new_note = NewNote.where(patient_id: params[:id])
+      new_note = NewNote.where(patient_id: params[:id]).order("created_at DESC")
       render json: new_note
     end
 
