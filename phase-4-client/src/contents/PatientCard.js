@@ -18,6 +18,7 @@ function PatientCard({
   admitted,
   onUpdate
 }) {
+  console.log(id)
 
 
   function handleRemove(){

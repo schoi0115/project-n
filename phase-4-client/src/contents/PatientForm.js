@@ -35,7 +35,8 @@ function PatientForm({ user, setPatient, patient }) {
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((data) => setPatient([...patient, data]));
+          r.json()
+          .then((data) => setPatient([...patient, data]));
           history.push("/");
         } else {
           r.json().then((data) => setErrors(data.errors));

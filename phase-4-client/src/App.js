@@ -5,6 +5,7 @@ import SignUp from "./components/SignUpForm";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+
 import PatientForm from "./contents/PatientForm";
 import PatientContainer from "./contents/PatientContainer";
 import NewNoteForm from "./contents/NewNoteForm";
